@@ -27,7 +27,6 @@ my $_silent = sprintf(">%s", File::Spec->devnull);
 sub lbtypes {
     my $vobtag = shift;
 
-    # ignore retval
     system("cleartool lstype -kind lbtype -unsorted -invob $vobtag $_silent")
         and die("failed to lstype in $vobtag");
 }
@@ -35,18 +34,9 @@ sub lbtypes {
 sub vtree {
     my $pname = shift;
 
-    # ignore retval
     system("cleartool lsvtree -all $pname $_silent")
         and die("failed to lsvtree $pname");
 }
-
-# runround runs the benchmark test (lstype, vtree)
-sub runround {
-    my ($vobtag, $pname) = @_;
-    lbtypes($vobtag);
-    vtree($pname);
-}
-
 
 # main()
 
