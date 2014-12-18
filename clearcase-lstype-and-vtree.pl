@@ -42,7 +42,7 @@ sub vtree {
 
 my $vobtag = shift;
 my $pname = shift;
-my $count = shift || 10;
+my $count = shift || 20;
 
 die "Usage: $0 <vobtag> <pname> [<count>]" unless ($vobtag and $pname);
 
